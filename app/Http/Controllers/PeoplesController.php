@@ -10,6 +10,10 @@ use Throwable;
 
 class PeoplesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('client');
+    }
     public function handleResponse($status, $message, $content, $httpCode = 200):JsonResponse
     {
         return response()->json([
